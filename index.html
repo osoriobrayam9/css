@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>TODO — Plain CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>TODO <small>Plain CSS</small></h1>
+      <p class="muted">Gestor de tareas.</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Crear</h2>
+        <form id="form-new" autocomplete="off">
+          <div class="grid-2">
+            <label class="field">
+              <span>Título</span>
+              <input id="new-title" required placeholder="Ej: Llamar al cliente" />
+            </label>
+            <label class="field">
+              <span>Descripción</span>
+              <input id="new-desc" placeholder="Opcional" />
+            </label>
+          </div>
+          <button class="btn primary">Agregar</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>Tareas</h2>
+          <button id="btn-reload" class="btn subtle" type="button">Actualizar</button>
+        </div>
+        <ul id="list" class="todo-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <template id="tpl-item">
+      <li class="todo" role="article">
+        <label class="todo-left">
+          <input class="t-toggle" type="checkbox" />
+          <span class="t-title"></span>
+        </label>
+        <div class="todo-right">
+          <button class="icon-btn" data-act="edit" title="Editar">✎</button>
+          <button class="icon-btn danger" data-act="delete" title="Eliminar">🗑</button>
+        </div>
+        <p class="t-desc"></p>
+      </li>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
